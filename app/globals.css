@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: #b80710;
+  --color-primary-foreground: #ffffff;
+  --color-muted: #1c1c1c;
+  --color-muted-foreground: #a1a1aa;
+  --color-border: #292929;
+  --color-ring: #ffb4aa;
+  --color-surface-base: #090909;
+  --color-surface-card: #141414;
+  --color-surface-elevated: #1c1c1c;
+  --color-surface-high: #242424;
+  --color-surface-border: #292929;
+  --color-text-secondary: #a1a1aa;
+  --color-status-available: #22c55e;
+  --color-status-warning: #f59e0b;
+  --font-heading: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+:root {
+  color-scheme: dark;
+  --background: #090909;
+  --foreground: #ffffff;
+  --card: #141414;
+  --card-foreground: #ffffff;
+  --popover: #1c1c1c;
+  --popover-foreground: #ffffff;
+  --primary: #b80710;
+  --primary-foreground: #ffffff;
+  --secondary: #1c1c1c;
+  --secondary-foreground: #ffffff;
+  --muted: #1c1c1c;
+  --muted-foreground: #a1a1aa;
+  --accent: #222222;
+  --accent-foreground: #ffffff;
+  --destructive: #e50914;
+  --border: #292929;
+  --input: #292929;
+  --ring: #ffb4aa;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: #292929;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #090909;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #090909;
+  color: #ffffff;
+  font-family: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #ffb4aa;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(184, 7, 16, 0.72);
+  color: #fff;
+}
+
+.font-heading {
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+}
+
+.surface-card {
+  border: 1px solid #292929;
+  background: #141414;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  background: #b80710;
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #e50914;
+  box-shadow: 0 8px 24px rgba(184, 7, 16, 0.22);
+}
+
+.primary-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid #292929;
+  border-radius: 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.secondary-button:hover:not(:disabled) {
+  border-color: #555;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster-fallback {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 15%, rgba(184, 7, 16, 0.45), transparent 42%), linear-gradient(145deg, #37211c, #171717 58%, #090909);
+}
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(21, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.qr-cell {
+  aspect-ratio: 1;
+  border-radius: 1px;
+  background: #111;
+}
+
+.qr-cell.is-empty {
+  background: transparent;
+}
+
+@media print {
+  body { background: #fff; color: #111; }
+  .no-print, header, footer { display: none !important; }
+  .ticket-print { border: 1px solid #ddd !important; background: #fff !important; color: #111 !important; }
+}
